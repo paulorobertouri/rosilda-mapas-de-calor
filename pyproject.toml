@@ -1,0 +1,23 @@
+[project]
+name = "rosilda-mapas-de-calor"
+version = "1.0.0"
+description = "Heatmaps for Brazil regions."
+readme = "readme.md"
+requires-python = ">=3.10"
+dependencies = [
+    "geopandas",
+    "matplotlib",
+    "pandas",
+    "requests",
+    "pytest",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pyright]
+typeCheckingMode = "basic"

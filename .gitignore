@@ -1,1 +1,16 @@
 .venv
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Runtime and Database
+.data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3

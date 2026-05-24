@@ -28,12 +28,13 @@ def map_regions(
     return geo_df
 
 
-def plot_general_heatmap(
+def plot_heatmap(
     geo_df: gpd.GeoDataFrame,
+    title: str,
     region_data: list[int],
     output_path: str,
 ) -> None:
-    """Plots and saves the general heatmap for Brazil."""
+    """Plots and saves a heatmap."""
     df = pd.DataFrame(
         {
             config.REGION_LABEL: config.REGIONS,
@@ -63,30 +64,7 @@ def plot_general_heatmap(
         ax.scatter([], [], c=[color], label=f"{value}")
 
     ax.legend()
-    plt.title("BRASIL")
+    plt.title(title)
     plt.axis("off")
     plt.savefig(output_path, dpi=900)
     plt.close()
-
-
-def main() -> None:
-    create_output_directory(config.OUTPUT_DIR)
-    
-    data = [
-        20, # SUL
-        38, # SUDESTE
-        9,  # CENTRO-OESTE
-        14, # NORTE
-        33, # NORDESTE
-    ]
-    
-    output_file = os.path.join(config.OUTPUT_DIR, "geral.png")
-    geojson = load_geojson(config.GEOJSON_URL)
-    geojson = map_regions(geojson, config.COLUMN_NAME, config.REGION_MAPPING)
-
-    print("Generating general heatmap...")
-    plot_general_heatmap(geojson, data, output_file)
-
-
-if __name__ == "__main__":
-    main()

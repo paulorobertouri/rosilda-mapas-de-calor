@@ -1,7 +1,11 @@
 .venv
+.venv/
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
+.ruff_cache/
+.outputs/
 node_modules/
 .DS_Store
 Thumbs.db

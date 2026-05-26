@@ -11,10 +11,10 @@ A Python-based tool for generating heat maps of higher education institutions in
 ## Architecture
 
 The project is structured as a collection of Python scripts:
-- `geral.py`: Generates the general heat map for all institutions.
-- `empresas.py`: Generates individual heat maps for specific educational groups.
-- `config.py`: Configuration and data paths.
-- `utils.py`: Shared utility functions for map generation.
+- `src/mapping/Geral.py`: Generates the general heat map for all institutions.
+- `src/mapping/Empresas.py`: Generates individual heat maps for specific educational groups.
+- `src/mapping/Config.py`: Configuration and data paths.
+- `src/mapping/Utils.py`: Shared utility functions for map generation.
 
 ## Setup
 
@@ -34,17 +34,17 @@ uv sync
 
 To generate the general heat map:
 ```bash
-python geral.py
+python src/mapping/Geral.py
 ```
 
 To generate specific maps for each group:
 ```bash
-python empresas.py
+python src/mapping/Empresas.py
 ```
 
 ## Testing
 
 Run tests to verify mapping logic:
 ```bash
-pytest test_mapping.py
+pytest -q tests
 ```

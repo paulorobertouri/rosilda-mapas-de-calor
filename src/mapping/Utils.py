@@ -1,10 +1,8 @@
 import os
+from typing import Any
 
-import geopandas as gpd
-import matplotlib.pyplot as plt
+import Config as config
 import pandas as pd
-
-import config
 
 
 def create_output_directory(directory: str) -> None:
@@ -13,28 +11,32 @@ def create_output_directory(directory: str) -> None:
         os.makedirs(directory)
 
 
-def load_geojson(url: str) -> gpd.GeoDataFrame:
+def load_geojson(url: str) -> Any:
     """Loads GeoJSON data from a URL."""
+    import geopandas as gpd
+
     return gpd.read_file(url)  # type: ignore
 
 
 def map_regions(
-    geo_df: gpd.GeoDataFrame,
+    geo_df: pd.DataFrame,
     column_name: str,
     region_mapping: dict[str, str],
-) -> gpd.GeoDataFrame:
+) -> pd.DataFrame:
     """Maps states to regions in the GeoDataFrame."""
     geo_df[config.REGION_LABEL] = geo_df[column_name].map(region_mapping)
     return geo_df
 
 
 def plot_heatmap(
-    geo_df: gpd.GeoDataFrame,
+    geo_df: pd.DataFrame,
     title: str,
     region_data: list[int],
     output_path: str,
 ) -> None:
     """Plots and saves a heatmap."""
+    import matplotlib.pyplot as plt
+
     df = pd.DataFrame(
         {
             config.REGION_LABEL: config.REGIONS,

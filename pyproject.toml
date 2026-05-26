@@ -2,7 +2,7 @@
 name = "rosilda-mapas-de-calor"
 version = "1.0.0"
 description = "Heatmaps for Brazil regions."
-readme = "readme.md"
+readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "geopandas",

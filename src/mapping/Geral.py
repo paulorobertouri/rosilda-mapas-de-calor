@@ -1,20 +1,20 @@
 import os
 
-import config
-import utils
+import Config as config
+import Utils as utils
 
 
 def main() -> None:
     utils.create_output_directory(config.OUTPUT_DIR)
-    
+
     data = [
-        20, # SUL
-        38, # SUDESTE
+        20,  # SUL
+        38,  # SUDESTE
         9,  # CENTRO-OESTE
-        14, # NORTE
-        33, # NORDESTE
+        14,  # NORTE
+        33,  # NORDESTE
     ]
-    
+
     output_file = os.path.join(config.OUTPUT_DIR, "geral.png")
     geojson = utils.load_geojson(config.GEOJSON_URL)
     geojson = utils.map_regions(geojson, config.COLUMN_NAME, config.REGION_MAPPING)

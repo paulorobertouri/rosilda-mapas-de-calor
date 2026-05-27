@@ -10,6 +10,7 @@ dependencies = [
     "pandas",
     "requests",
     "pytest",
+    "pytest-cov",
 ]
 
 [tool.ruff]
@@ -21,3 +22,9 @@ select = ["E", "F", "I", "W"]
 
 [tool.pyright]
 typeCheckingMode = "basic"
+
+[tool.coverage.run]
+source = ["backend/src"]
+
+[tool.coverage.report]
+fail_under = 85

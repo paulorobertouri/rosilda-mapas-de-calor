@@ -1,11 +1,14 @@
 Clear-Host
 
-Write-Host "Activating Python virtual environment" -ForegroundColor Green
+$ErrorActionPreference = "Stop"
+$Root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 
-.venv\Scripts\Activate.ps1
-
-Write-Host "Running the application" -ForegroundColor Green
-
-python geral.py
-
-python empresas.py
+Push-Location $Root
+try {
+    Write-Host "==> Generating heatmaps..." -ForegroundColor Green
+    uv run python -m backend.src.shared.mapping.Geral
+    uv run python -m backend.src.shared.mapping.Empresas
+    Write-Host "Heatmaps generated."
+} finally {
+    Pop-Location
+}

@@ -12,4 +12,3 @@ def test_regions_and_mapping_are_consistent() -> None:
     assert "SUL" in config.REGIONS
     assert config.REGION_MAPPING["Paraná"] == "SUL"
     assert config.REGION_LABEL == "Região"
-

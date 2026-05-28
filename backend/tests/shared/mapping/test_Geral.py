@@ -35,4 +35,3 @@ def test_main_generates_geral_png(monkeypatch: MonkeyPatch, tmp_path: Path) -> N
     geral.main()
 
     assert captured_paths == [str(tmp_path / "geral.png")]
-

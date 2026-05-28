@@ -11,7 +11,9 @@ import Config as config  # noqa: E402
 import Empresas as empresas  # noqa: E402
 
 
-def test_main_generates_one_file_per_company(monkeypatch: MonkeyPatch, tmp_path: Path) -> None:
+def test_main_generates_one_file_per_company(
+    monkeypatch: MonkeyPatch, tmp_path: Path
+) -> None:
     captured_paths: list[str] = []
 
     monkeypatch.setattr(empresas.config, "OUTPUT_DIR", str(tmp_path))
@@ -37,4 +39,3 @@ def test_main_generates_one_file_per_company(monkeypatch: MonkeyPatch, tmp_path:
     assert len(captured_paths) == 6
     assert all(Path(path).suffix == ".png" for path in captured_paths)
     assert all(Path(path).parent == tmp_path for path in captured_paths)
-

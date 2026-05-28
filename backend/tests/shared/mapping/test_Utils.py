@@ -70,7 +70,9 @@ def test_plot_heatmap_builds_legend_and_saves(monkeypatch, tmp_path: Path) -> No
     fake_pyplot.subplots = lambda *_args, **_kwargs: (None, fake_ax)
     fake_pyplot.title = lambda *_args, **_kwargs: None
     fake_pyplot.axis = lambda *_args, **_kwargs: None
-    fake_pyplot.savefig = lambda output_path, **_kwargs: captured_paths.append(output_path)
+    fake_pyplot.savefig = lambda output_path, **_kwargs: captured_paths.append(
+        output_path
+    )
     fake_pyplot.close = lambda *_args, **_kwargs: None
 
     monkeypatch.setitem(sys.modules, "matplotlib", types.ModuleType("matplotlib"))

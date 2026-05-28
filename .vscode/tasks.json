@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "install",
+      "type": "shell",
+      "command": "uv sync",
+      "problemMatcher": []
+    },
+    {
+      "label": "test:run",
+      "type": "shell",
+      "command": "uv run python -m pytest backend/tests -v",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "run:geral",
+      "type": "shell",
+      "command": "uv run python -m backend.src.shared.mapping.Geral",
+      "problemMatcher": []
+    },
+    {
+      "label": "run:empresas",
+      "type": "shell",
+      "command": "uv run python -m backend.src.shared.mapping.Empresas",
+      "problemMatcher": []
+    }
+  ]
+}
